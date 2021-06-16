@@ -7,6 +7,8 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+            <link href ="{{asset('css/style.css')}}" rel="stylesheet">
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +16,20 @@
         {% endblock %}
     </head>
     <body>
+        <table width=100% height=100% border=1>
+        <tr><td style='height:100px; background:GREY'>
+        <H2 style="text-align:center">FORMATION SYMFONY</H2>
+        </td>
+        </tr><tr>
+        <td style='height:95%'>
         {% block body %}{% endblock %}
+         </td>
+         </tr></tr>
+        <td style='height:100px; background:GREY'>
+        {{"now"| date("F jS \\a\\t g:ia") }}
+         </td>
+         </tr>
+         </table>
+
     </body>
 </html>

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FilmController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+<div class="example-wrapper">
+    <h1>Hello La liste des {{films|length|number_format(2, '.', ',')}} films</h1>
+</div>
+
+{% if films|length > 0 %}
+<table border=1 width=90%>
+    <tr>
+        <th class='thTit'>Titre</th>
+        <th class='thTit'>Producteur</th>
+    </tr>
+{% for film in films %}
+    <tr>
+        <td>
+            <A HREF="{{path('film_get', {idFilm :film.id})}}">{{ film.title| upper}}</A>
+        </td>
+        <td>
+            {% set genres = film.genre | split('|') %}
+            <!--{{ film.genre| upper}}-->
+            {% for genre in genres %}
+                {{ genre| upper}} - 
+            {% endfor %}
+        </td>
+    </tr>
+{% endfor %}       
+</table>
+{% else %}
+    <H3>Aucun film</H3>
+{% endif %}
+
+<A href="{{path('film_index')}}">retour</A>
+{% endblock %}
