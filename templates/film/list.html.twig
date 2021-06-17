@@ -21,7 +21,7 @@
 {% for film in films %}
     <tr>
         <td>
-            <A HREF="{{path('film_get', {idFilm :film.id})}}">{{ film.title| upper}}</A>
+            <A HREF="{{path('film_getSQL', {idFilm :film.id})}}">{{ film.titre| upper}}</A>
         </td>
         <td>
             {% set genres = film.genre | split('|') %}

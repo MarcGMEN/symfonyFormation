@@ -19,6 +19,20 @@ class FilmRepository extends ServiceEntityRepository
         parent::__construct($registry, Film::class);
     }
 
+    /**
+    * @return Film[] Returns an array of Film objects
+    */
+    public function findByCensureVideQueryBuilder()
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.censure IS NULL')
+            ->orderBy('f.id', 'ASC');
+            //->getQuery()
+            //->getResult();
+    }
+    
+
+
     // /**
     //  * @return Film[] Returns an array of Film objects
     //  */

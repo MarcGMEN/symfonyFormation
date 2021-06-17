@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{laFiche.title}}{% endblock %}
+{% block title %}{{laFiche.titre}}{% endblock %}
 
 {% block body %}
 
-<h1>{{ laFiche.title| upper}}</h1>
+<h1>{{ laFiche.titre| upper}}</h1>
 de {{ laFiche.genre| upper}}
 <br/>
 <img src="{{ laFiche.poster}}" />
      <br/>  </br/>
-<A href="{{path('film_list')}}" >retour</A>
+<A href="{{path('film_listSQLLite')}}" >retour</A>
 {% endblock %}
